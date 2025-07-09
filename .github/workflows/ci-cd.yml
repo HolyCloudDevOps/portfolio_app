@@ -51,7 +51,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ secrets.DOCKERHUB_IMAGE_REPO }}
+          images: hollydevops/portfolio-dev
           tags: |
             type=raw,value=sha-${{ github.sha }} 
           # type=ref,event=tag
@@ -66,6 +66,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-buildx-${{ hashFiles('Dockerfile') }}-
             ${{ runner.os }}-buildx-
+
+      - name: Debug image name and tags
+        run: |
+          echo "Image: ${{ steps.meta.outputs.tags }}"
+          echo "Repo: ${{ secrets.DOCKERHUB_IMAGE_REPO }}"
+
 
       - name: Build and push
         uses: docker/build-push-action@v6
