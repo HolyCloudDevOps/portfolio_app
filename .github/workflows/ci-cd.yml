@@ -74,4 +74,5 @@ jobs:
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          push: ${{ github.ref == 'refs/heads/prod' || startsWith(github.ref, 'refs/tags/') }}
+          push: true
+  #${{ github.ref == 'refs/heads/prod' || startsWith(github.ref, 'refs/tags/') }}
