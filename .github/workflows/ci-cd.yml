@@ -70,9 +70,11 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
+          сontext: .
+          push: true
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          push: true
+          
   #${{ github.ref == 'refs/heads/prod' || startsWith(github.ref, 'refs/tags/') }}
