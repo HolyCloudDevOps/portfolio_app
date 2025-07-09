@@ -31,6 +31,7 @@ jobs:
   docker:
     needs: test
     runs-on:  ubuntu-latest
+    environment: ${{ github.ref_name == 'prod' && 'prod' || 'dev' }} 
     steps:
       - uses: actions/checkout@v4
     
@@ -41,7 +42,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: name/app
+          images: ${{ secrets.DOCKERHUB_IMAGE_REPO }}
           tags: |
             type=ref,event=tag
             type=schedule,pattern={{date 'YYYYMMDD'}}
