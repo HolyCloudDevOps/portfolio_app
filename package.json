@@ -1,0 +1,20 @@
+{
+    "name": "my-node-app",
+    "version": "1.0.0",
+    "description": "Node.js app",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "test": "jest --ci --detectOpenHandles",
+        "test:coverage": "jest --coverage --detectOpenHandles"
+    },
+    "author": "Olena Maksymiv",
+    "license": "MIT",
+    "dependencies": {
+        "express": "^4.19.2"
+    },
+    "devDependencies": {
+        "jest": "^30.0.4",
+        "supertest": "^7.1.1"
+    }
+}
