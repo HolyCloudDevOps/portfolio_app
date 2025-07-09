@@ -5,8 +5,8 @@
     "main": "index.js",
     "scripts": {
         "start": "node index.js",
-        "test": "jest --ci",
-        "test:coverage": "jest --coverage"
+        "test": "jest --ci --detectOpenHandles",
+        "test:coverage": "jest --coverage --detectOpenHandles"
     },
     "author": "Olena Maksymiv",
     "license": "MIT",

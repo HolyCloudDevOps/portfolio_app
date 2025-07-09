@@ -10,9 +10,11 @@ app.get('/', (_req, res) => {
 app.get('/health', (_req, res) => {
     res.status(200).send('OK');
 });
-  
-app.listen(port, () => {
-  console.log(`Server is listening on port ${port}`);
-});
 
-module.exports = app; 
+module.exports = app;
+
+if (require.main === module) {
+  app.listen(port, () => {
+    console.log(`Server is listening on port ${port}`);
+  });
+}
